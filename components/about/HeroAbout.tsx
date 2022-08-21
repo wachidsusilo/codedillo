@@ -10,14 +10,13 @@ const HeroAbout = ({className}: Props) => {
         <section
             className={`relative w-full max-w-container mx-auto grid grid-cols-2 lg:grid-cols-3 overflow-hidden ${className}`}>
             <div
-                className="absolute h-[40rem] md:h-auto justify-end md:justify-start md:static pb-8 md:pb-0 flex flex-col gap-8 md:mt-48 md:!pb-44">
+                className="absolute h-[40rem] md:h-auto justify-end md:justify-start md:static pb-8 md:pb-0 flex flex-col md:mt-48 md:!pb-44">
                 <h1 className="text-center md:text-start flex flex-col text-lg font-medium gap-4">
                     Hello, I'm
                     <span className="text-4xl">Wachid</span>
                 </h1>
-                <p className="text-center md:text-start text-md text-white/60">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae consequatur dolores fugit,
-                    impedit in itaque nihil, porro praesentium quaerat quas quibusdam quisquam temporibus, ut.
+                <p className="text-center md:text-start text-md text-white/60 mt-8">
+                    An enthusiastic, passionate software developer in Web, Android, and IoT development. I started programming in 2018. I love to learn new things and very eager to join you to make the world a better place.
                 </p>
             </div>
             <div className="h-[40rem] md:h-auto flex flex-col col-span-2 md:col-span-1 bg-blue/10">

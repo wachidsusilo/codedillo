@@ -12,7 +12,7 @@ const AboutSkills = ({className = ''}: Props) => {
                     alt=""/>
                 <h1 className="text-xl text-white/90 font-medium">Skills & Experiences</h1>
             </div>
-            <div className="w-full grid grid-cols-4 gap-8 rounded-xl">
+            <div className="w-full grid sm:grid-cols-2 lg:grid-cols-4 gap-8 rounded-xl">
                 <SkillCard
                     title="Arduino"
                     description="I'm experienced in Arduino environment for at least 4 years."

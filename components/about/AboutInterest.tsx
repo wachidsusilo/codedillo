@@ -13,7 +13,7 @@ const AboutInterest = ({className}: Props) => {
                     alt=""/>
                 <h1 className="text-xl text-white/90 font-medium">Interests</h1>
             </div>
-            <div className="grid grid-cols-2 gap-16 pt-4">
+            <div className="grid lg:grid-cols-2 gap-16 pt-4">
                 <div className="p-8 flex flex-col rounded-xl bg-white/5">
                     <img
                         className="h-32 object-contain"
