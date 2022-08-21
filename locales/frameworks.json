@@ -1,0 +1,38 @@
+[
+  {
+    "id": "android",
+    "name": "Android",
+    "description": "Android is a mobile operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile devices such as smartphones and tablets.",
+    "iconUrl": "/assets/images/framework_android.png",
+    "referenceUrl": "https://en.wikipedia.org/wiki/Android_(operating_system)",
+    "cite": "Android - Wikipedia",
+    "color": "green"
+  },
+  {
+    "id": "arduino",
+    "name": "Arduino",
+    "description": "Arduino is an open-source hardware and software company, project, and user community that designs and manufactures single-board microcontrollers and microcontroller kits for building digital devices.",
+    "iconUrl": "/assets/images/framework_arduino.png",
+    "referenceUrl": "https://en.wikipedia.org/wiki/Arduino",
+    "cite": "Arduino - Wikipedia",
+    "color": "azure"
+  },
+  {
+    "id": "next",
+    "name": "NextJS",
+    "description": "is an open-source web development framework built on top of Node.js enabling React-based web applications functionalities such as server-side rendering and generating static websites.",
+    "iconUrl": "/assets/images/framework_next.png",
+    "referenceUrl": "https://en.wikipedia.org/wiki/Next.js",
+    "cite": "NextJS - Wikipedia",
+    "color": "yellow"
+  },
+  {
+    "id": "react",
+    "name": "React",
+    "description": "React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.",
+    "iconUrl": "/assets/images/framework_react.png",
+    "referenceUrl": "https://en.wikipedia.org/wiki/React_(JavaScript_library)",
+    "cite": "React - Wikipedia",
+    "color": "blue"
+  }
+]

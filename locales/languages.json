@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ts",
+    "name": "Typescript",
+    "description": "TypeScript is a programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language.",
+    "iconUrl": "/assets/images/language_ts.png",
+    "referenceUrl": "https://en.wikipedia.org/wiki/TypeScript",
+    "cite": "Typescript - Wikipedia",
+    "color": "azure"
+  },
+  {
+    "id": "cpp",
+    "name": "C++",
+    "description": "C++ is a general-purpose programming language created by Danish computer scientist Bjarne Stroustrup as an extension of the C programming language.",
+    "iconUrl": "/assets/images/language_cpp.png",
+    "referenceUrl": "https://en.wikipedia.org/wiki/C%2B%2B",
+    "cite": "C++ - Wikipedia",
+    "color": "blue"
+  },
+  {
+    "id": "kt",
+    "name": "Kotlin",
+    "description": "Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java.",
+    "iconUrl": "/assets/images/language_kotlin.png",
+    "referenceUrl": "https://en.wikipedia.org/wiki/Kotlin_(programming_language)",
+    "cite": "Kotlin - Wikipedia",
+    "color": "purple"
+  }
+]

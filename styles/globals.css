@@ -1,3 +1,50 @@
+@import url('monsterrat_alternates.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        @apply box-border antialiased;
+    }
+
+    body {
+        @apply bg-bg text-fg select-none overflow-x-hidden !scrollbar-thin-purple-dark;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    input {
+        background: transparent;
+        outline: none;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    img {
+        pointer-events: none;
+    }
+}
+
+@layer components {
+    .nav-link {
+        @apply text-white/60 hover:text-white transition cursor-pointer font-semibold text-md md:text-sm flex items-center;
+    }
+
+    .transition-nav {
+        transition: height 0.3s, background-color 0.3s;
+    }
+
+    .contact-link {
+        @apply px-4 py-3 md:py-2 bg-white/5 hover:bg-white/10 rounded-md
+        flex text-white/60 hover:text-white transition cursor-pointer font-semibold text-md md:text-sm;
+    }
+
+    .article-row-selected {
+        @apply !bg-white/10 rounded-md
+    }
+
+}
