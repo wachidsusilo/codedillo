@@ -118,6 +118,7 @@ export const getArticle = async (id: string): Promise<EditorData | null> => {
         categories: meta.categories ?? [],
         dateCreated: meta.dateCreated ?? Date.now(),
         dateModified: meta.dateModified ?? Date.now(),
+        published: false,
         contents
     }
 }
