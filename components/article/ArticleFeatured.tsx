@@ -52,21 +52,25 @@ const ArticleFeatured = ({className}: Props) => {
                                     }}>
                                     {article.description}
                                 </p>
-                                <Link href="/pages">
-                                    <a className="mx-auto mt-6 flex items-center justify-center text-white/60
+                                <Link
+                                    href="/pages"
+                                    className="mx-auto mt-6 flex items-center justify-center text-white/60
                                     hover:text-white/80 transition z-10">
-                                        <img
-                                            className="w-5 h-5 rounded-full object-cover"
-                                            src={article.profilePictureUrl}
-                                            alt=""/>
-                                        <span className="ml-3 text-sm font-medium text-shadow-lg">{article.author}</span>
-                                    </a>
+
+                                    <img
+                                        className="w-5 h-5 rounded-full object-cover"
+                                        src={article.profilePictureUrl}
+                                        alt=""/>
+                                    <span className="ml-3 text-sm font-medium text-shadow-lg">{article.author}</span>
+
                                 </Link>
-                                <Link href="/pages">
-                                    <a className="mt-8 py-2.5 flex items-center justify-center bg-white/10 hover:bg-white/20 text-sm
+                                <Link
+                                    href="/pages"
+                                    className="mt-8 py-2.5 flex items-center justify-center bg-white/10 hover:bg-white/20 text-sm
                                     font-medium rounded-md transition z-10 shrink-on-click">
+                                    
                                         Read Article
-                                    </a>
+                                    
                                 </Link>
                             </div>
                         ))
@@ -74,7 +78,7 @@ const ArticleFeatured = ({className}: Props) => {
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 export default ArticleFeatured

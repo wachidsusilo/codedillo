@@ -8,7 +8,7 @@ import ProjectCard from './ProjectCard'
 import Pagination from '../general/Pagination'
 
 interface Props {
-    className: string
+    className?: string
 }
 
 const project: ProjectMeta = {
@@ -39,7 +39,7 @@ const projectList: Array<ProjectMeta> = [
     {...project, id: '10'}
 ]
 
-const ProjectList = ({className}: Props) => {
+const ProjectList = ({className = ''}: Props) => {
     const projectAnchorRef = useRef<HTMLDivElement>(null)
     const lastPageRef = useRef(1)
     const {selected} = usePagination()

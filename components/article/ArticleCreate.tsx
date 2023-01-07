@@ -1,4 +1,4 @@
-import { PencilAltIcon } from '@heroicons/react/outline'
+import { PencilSquareIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
 interface Props {
@@ -13,7 +13,7 @@ const ArticleCreate = ({className}: Props) => {
                 <div className="w-full p-8 md:p-10 lg:p-16 flex flex-col">
                     <div className="w-14 h-14 rounded-2xl flex items-center justify-center border border-white/10
                     bg-gradient-radial from-transparent via-white/10 to-white/30">
-                        <PencilAltIcon className="w-7 h-6"/>
+                        <PencilSquareIcon className="w-7 h-6"/>
                     </div>
                     <h2 className="mt-6 text-xl text-shadow-md font-semibold">Write your own article</h2>
                     <p className="mt-4 text-lg text-white/80 text-shadow-md">
@@ -24,11 +24,13 @@ const ArticleCreate = ({className}: Props) => {
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto deserunt error nemo
                         quaerat rerum totam vel voluptatem.
                     </p>
-                    <Link href="/articles/create">
-                        <a className="mr-auto mt-6 px-6 py-3 flex bg-white/[0.15] hover:bg-white/20 transition rounded-lg
+                    <Link
+                        href="/articles/create"
+                        className="mr-auto mt-6 px-6 py-3 flex bg-white/[0.15] hover:bg-white/20 transition rounded-lg
                         text-md border border-white/30 shrink-on-click">
+                        
                             Get Started
-                        </a>
+                        
                     </Link>
                 </div>
                 <div className="w-full h-full p-8 md:p-10 lg:p-16 flex">
@@ -41,7 +43,7 @@ const ArticleCreate = ({className}: Props) => {
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 export default ArticleCreate

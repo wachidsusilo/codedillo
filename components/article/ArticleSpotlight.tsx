@@ -2,11 +2,11 @@ import {
     ArrowRightIcon,
     ChevronDownIcon,
     DocumentTextIcon,
-    FilterIcon,
+    FunnelIcon,
     FolderOpenIcon
-} from '@heroicons/react/outline'
+} from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import { SearchIcon } from '@heroicons/react/solid'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 import Skeleton from '../general/Skeleton'
 import ArticleRow from './ArticleRow'
 import { useState } from 'react'
@@ -54,24 +54,30 @@ const ArticleSpotlight = ({className}: Props) => {
                             className="mt-4 font-semibold text-white/80 text-sm sm:text-lg text-center xl:text-start">
                             <cite>
                                 ―&nbsp;
-                                <Link href={'https://en.wikipedia.org/wiki/George_R._R._Martin'}>
-                                    <a className="hover:underline">George R.R. Martin</a>
+                                <Link
+                                    href={'https://en.wikipedia.org/wiki/George_R._R._Martin'}
+                                    className="hover:underline">
+                                    George R.R. Martin
                                 </Link>
                                 ,&nbsp;
-                                <Link href={'https://en.wikipedia.org/wiki/A_Dance_with_Dragons'}>
-                                    <a className="hover:underline">A Dance with Dragons</a>
+                                <Link
+                                    href={'https://en.wikipedia.org/wiki/A_Dance_with_Dragons'}
+                                    className="hover:underline">
+                                    A Dance with Dragons
                                 </Link>
                             </cite>
                         </figcaption>
                     </figure>
-                    <Link href="/articles">
-                        <a className="mt-8 mx-auto xl:ml-0 xl:mr-auto py-2 px-4 flex items-center justify-center bg-white/20
+                    <Link
+                        href="/articles"
+                        className="mt-8 mx-auto xl:ml-0 xl:mr-auto py-2 px-4 flex items-center justify-center bg-white/20
                         text-sm sm:text-md text-white rounded-lg cursor-pointer hover:bg-white/30 group shrink-on-click">
-                            <span className="mr-1.5 flex whitespace-nowrap font-medium text-shadow-sm">
-                                Browse Articles
-                            </span>
-                            <ArrowRightIcon className="w-4 h-4 transition duration-300 group-hover:translate-x-1/4"/>
-                        </a>
+
+                        <span className="mr-1.5 flex whitespace-nowrap font-medium text-shadow-sm">
+                            Browse Articles
+                        </span>
+                        <ArrowRightIcon className="w-4 h-4 transition duration-300 group-hover:translate-x-1/4"/>
+
                     </Link>
                 </div>
                 <div className="w-full px-8 pb-8 md:px-16 md:pb-16 xl:pr-10 xl:pl-0 xl:py-16 2xl:px-0 hidden sm:flex">
@@ -84,7 +90,7 @@ const ArticleSpotlight = ({className}: Props) => {
                             alt=""/>
                         <div className="relative w-full h-12 px-4 border-b border-b-white/10 flex items-center z-10">
                             <div className="w-6 h-6 mr-2 rounded-lg bg-white/10 flex items-center justify-center">
-                                <SearchIcon className="w-3.5 h-3.5"/>
+                                <MagnifyingGlassIcon className="w-3.5 h-3.5"/>
                             </div>
                             <input
                                 className="flex-grow flex items-center text-sm bg-transparent text-white outline-0 pt-0.5 "
@@ -100,7 +106,7 @@ const ArticleSpotlight = ({className}: Props) => {
                                     onClick={() => {
                                         setFilterOpen(!filterOpen)
                                     }}>
-                                    <FilterIcon className="w-3.5 h-3.5"/>
+                                    <FunnelIcon className="w-3.5 h-3.5"/>
                                     <h4 className="w-[calc(100%-3.125rem)] text-sm overflow-hidden text-ellipsis">{selectedFilter}</h4>
                                     <ChevronDownIcon
                                         className="w-4 h-4 transition"
@@ -163,12 +169,13 @@ const ArticleSpotlight = ({className}: Props) => {
                                                 description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, praesentium!"/>
                                         ))
                                     }
-                                    <Link href="/articles">
-                                        <a className="py-2.5 px-4 mx-auto mt-4 flex items-center justify-center text-sm
+                                    <Link
+                                        href="/articles"
+                                        className="py-2.5 px-4 mx-auto mt-4 flex items-center justify-center text-sm
                                         rounded-md bg-white/5 hover:bg-white/10 transition group">
-                                            Show more&nbsp; <ArrowRightIcon
+                                        Show more<ArrowRightIcon
                                             className="w-3.5 h-3.5 group-hover:translate-x-1/4 transition"/>
-                                        </a>
+
                                     </Link>
                                 </div>
                             </div>
@@ -201,10 +208,10 @@ const ArticleSpotlight = ({className}: Props) => {
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur est facilis nobis
                             provident quisquam ratione reprehenderit rerum. At dignissimos, ipsum?
                             &nbsp;
-                            <Link href="/pages">
-                                <a className="hover:underline text-blue">
+                            <Link href="/pages" className="hover:underline text-blue">
+                                
                                     Read more
-                                </a>
+                                
                             </Link>
                         </p>
                     </div>
@@ -225,17 +232,17 @@ const ArticleSpotlight = ({className}: Props) => {
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet facere numquam perspiciatis
                             reprehenderit? Cumque delectus, est excepturi impedit sunt tempore.
                             &nbsp;
-                            <Link href="/pages">
-                                <a className="hover:underline text-blue">
+                            <Link href="/pages" className="hover:underline text-blue">
+                                
                                     Read more
-                                </a>
+                                
                             </Link>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default ArticleSpotlight

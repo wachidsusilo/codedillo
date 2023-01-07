@@ -1,13 +1,23 @@
 import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from 'react'
+import { generateArticleId, getArticle, removeArticle, updateArticle } from '../firebase/firebase'
+import { EditorData } from '../typings'
 
-interface IArticleNavigation {
+interface IArticle {
     searchModalOpen: boolean
     setSearchModalOpen: Dispatch<SetStateAction<boolean>>
+    getArticle(id: string): Promise<EditorData | null>
+    updateArticle(article: EditorData): Promise<void>
+    removeArticle(id: string): Promise<void>
+    generateArticleId(): string | null
 }
 
-const ArticleContext = createContext<IArticleNavigation>({
+const ArticleContext = createContext<IArticle>({
     searchModalOpen: false,
-    setSearchModalOpen: () => {}
+    setSearchModalOpen: () => {},
+    getArticle,
+    updateArticle,
+    removeArticle,
+    generateArticleId
 })
 
 interface ArticleProviderProps {
@@ -21,7 +31,11 @@ export const ArticleProvider = ({children}: ArticleProviderProps) => {
         <ArticleContext.Provider
             value={{
                 searchModalOpen,
-                setSearchModalOpen
+                setSearchModalOpen,
+                getArticle,
+                updateArticle,
+                removeArticle,
+                generateArticleId
             }}>
             {children}
         </ArticleContext.Provider>

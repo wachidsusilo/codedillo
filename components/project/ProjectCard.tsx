@@ -16,6 +16,7 @@ const ProjectCard = ({content}: Props) => {
         <div className="flex-1 flex flex-col bg-white/10 rounded-xl">
             <SlideShow
                 className="w-full h-80 rounded-tl-xl rounded-tr-xl overflow-hidden"
+                frameClassName="rounded-tl-xl rounded-tr-xl"
                 imageUrls={content.imageUrls}/>
             <div className="w-full p-8 pt-4 flex flex-col">
                 <h3 className="text-xl font-medium">
@@ -24,10 +25,10 @@ const ProjectCard = ({content}: Props) => {
                 <p className="mt-2 text-md text-white/40 line-clamp-5">
                     {content.description}
                 </p>
-                <Link href={'/'}>
-                    <a className="mt-3 mr-auto flex items-center justify-center text-md text-blue-500 hover:underline">
+                <Link
+                    href={'/'}
+                    className="mt-3 mr-auto flex items-center justify-center text-md text-blue-500 hover:underline">
                         View Project
-                    </a>
                 </Link>
                 <div className="w-full mt-4 flex gap-4 text-sm z-10">
                     <span className="text-white/60">Language:</span>
@@ -91,7 +92,7 @@ const ProjectCard = ({content}: Props) => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default ProjectCard

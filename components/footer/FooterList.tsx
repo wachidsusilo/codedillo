@@ -8,7 +8,7 @@ interface Props {
 const FooterList = ({className, title, list}: Props) => {
     return (
         <ul className={`flex flex-col ${className}`}>
-            <h3 className="text-lg font-medium mb-2">{title}</h3>
+            <li className="text-lg font-medium mb-2">{title}</li>
             {
                 list?.map((value, index) => (
                     <li key={index} className="text-md text-white/60">{value}</li>

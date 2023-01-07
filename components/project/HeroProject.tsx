@@ -20,12 +20,14 @@ const HeroProject = () => {
                     transition={{duration: 0.7, delay: 0.3}}>
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-center">Projects</h1>
                     <p className="mt-5 text-md sm:text-lg md:text-xl lg:text-2xl text-white/60 text-center">Make your dream project come true</p>
-                    <Link href="/pages">
-                        <a className="mx-auto mt-10 px-8 py-2.5 sm:mt-12 sm:px-10 sm:py-3 md:mt-14 lg:mt-16 bg-white/90
+                    <Link
+                        href="/pages"
+                        className="mx-auto mt-10 px-8 py-2.5 sm:mt-12 sm:px-10 sm:py-3 md:mt-14 lg:mt-16 bg-white/90
                         hover:bg-white transition text-button-fg font-medium text-md sm:text-lg md:text-xl lg:text-2xl
                         rounded-2xl shadow-[0_0_0_3px_rgba(255,255,255,0.3)] shrink-on-click">
+                        
                             Get Started
-                        </a>
+                        
                     </Link>
                 </motion.div>
                 <div
@@ -35,7 +37,7 @@ const HeroProject = () => {
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 const Rocket = ({className}: {className?: string}) => {

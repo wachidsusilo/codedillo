@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRightIcon, CollectionIcon } from '@heroicons/react/outline'
+import { ArrowRightIcon, BeakerIcon } from '@heroicons/react/24/outline'
 
 const Hero = () => {
     return (
@@ -19,11 +19,11 @@ const Hero = () => {
                             A software developer from Semarang, Indonesia. I create Arduino based IoT device with full
                             support of Web and Android App.
                         </p>
-                        <Link href="/projects">
-                            <a className="px-5 py-3 mx-auto lg:ml-0 lg:mr-auto mt-8 lg:mt-10 border border-blue bg-blue-transparent
+                        <Link
+                            href="/projects"
+                            className="px-5 py-3 mx-auto lg:ml-0 lg:mr-auto mt-8 lg:mt-10 border border-blue bg-blue-transparent
                             rounded-full hover:bg-blue/30 cursor-pointer shrink-on-click font-medium text-sm md:text-md">
                                 My Projects
-                            </a>
                         </Link>
                     </div>
                     <div className="absolute pt-[70%] w-[70%] sm:pt-[60%] sm:w-[60%] md:pt-[40%] md:w-[40%] lg:pt-[30%]
@@ -40,8 +40,8 @@ const Hero = () => {
                 <div className="w-full mt-[25%] sm:mt-[15%] lg:mt-[25%] flex items-center justify-center flex flex-col">
                     <h2 className="flex items-center justify-center text-2.5xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">
                         Recent&nbsp;
-                        <span className="text-blue">Projects&nbsp;
-                        </span><CollectionIcon
+                        <span className="text-blue">Projects&nbsp;</span>
+                        <BeakerIcon
                         className="w-5.5 h-5.5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-9 lg:h-9 text-blue"/>
                     </h2>
                     <p className="text-md md:text-lg lg:text-xl text-white/60 text-center mt-2 md:mt-3 lg:mt-4">
@@ -65,14 +65,14 @@ const Hero = () => {
                                 <p className="mt-3 text-white/60 text-md">
                                     {'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dolores ducimus minima neque rem vitae.'}
                                 </p>
-                                <Link href={'/'}>
-                                    <a className="mt-auto pt-8 flex">
-                                        <div className="mx-auto mb-4 py-2 px-4 justify-self-end flex items-center justify-center bg-blue-transparent
-                                        text-sm text-blue rounded-lg cursor-pointer hover:bg-blue/20 group shrink-on-click">
-                                            <span className="mr-1.5 flex whitespace-nowrap">View Project</span>
-                                            <ArrowRightIcon className="w-4 h-4 transition duration-300 group-hover:translate-x-1/4"/>
-                                        </div>
-                                    </a>
+                                <Link href={'/'} className="mt-auto pt-8 flex">
+
+                                    <div className="mx-auto mb-4 py-2 px-4 justify-self-end flex items-center justify-center bg-blue-transparent
+                                    text-sm text-blue rounded-lg cursor-pointer hover:bg-blue/20 group shrink-on-click">
+                                        <span className="mr-1.5 flex whitespace-nowrap">View Project</span>
+                                        <ArrowRightIcon className="w-4 h-4 transition duration-300 group-hover:translate-x-1/4"/>
+                                    </div>
+
                                 </Link>
                             </div>
                         ))
@@ -91,21 +91,23 @@ const Hero = () => {
                                 elegant products in timely fashion.
                             </p>
                         </div>
-                        <Link href="/clients-stories">
-                            <a className="ml-4 py-2 px-2 md:px-4 flex items-center justify-center bg-transparent md:bg-magenta-transparent
+                        <Link
+                            href="/clients-stories"
+                            className="ml-4 py-2 px-2 md:px-4 flex items-center justify-center bg-transparent md:bg-magenta-transparent
                             text-sm text-magenta rounded-lg cursor-pointer md:hover:bg-magenta/20 group shrink-on-click">
-                                <span className="mr-1.5 hidden md:flex whitespace-nowrap">
-                                    View Stories
-                                </span>
-                                <ArrowRightIcon
-                                    className="w-4 h-4 transition duration-300 md:group-hover:translate-x-1/4"/>
-                            </a>
+
+                            <span className="mr-1.5 hidden md:flex whitespace-nowrap">
+                                View Stories
+                            </span>
+                            <ArrowRightIcon
+                                className="w-4 h-4 transition duration-300 md:group-hover:translate-x-1/4"/>
+
                         </Link>
                     </div>
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
 export default Hero

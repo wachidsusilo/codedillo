@@ -1,7 +1,7 @@
-import { AnimatePresence, motion, useAnimationControls, Variants } from 'framer-motion'
+import { AnimatePresence, motion, useAnimationControls } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { wrap } from 'popmotion'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 
 const variants = {
     center: {
@@ -27,10 +27,13 @@ const swipePower = (offset: number, velocity: number) => {
 
 interface Props {
     className?: string
+    frameClassName?: string
+    imageClassName?: string
     imageUrls: Array<string>
+    onChange?(position: number): void
 }
 
-const SlideShow = ({className, imageUrls}: Props) => {
+const SlideShow = ({className = '', frameClassName = '', imageClassName = '', imageUrls, onChange}: Props) => {
     const [[page, direction], setPage] = useState([0, 0])
     const controls = useAnimationControls()
 
@@ -38,6 +41,9 @@ const SlideShow = ({className, imageUrls}: Props) => {
 
     useEffect(() => {
         if (imageUrls.length < 2) {
+            if (onChange) {
+                onChange(imageIndex)
+            }
             return
         }
 
@@ -58,7 +64,10 @@ const SlideShow = ({className, imageUrls}: Props) => {
                 }).then()
             })
         }
-    }, [imageIndex])
+        if (onChange) {
+            onChange(imageIndex)
+        }
+    }, [imageIndex, imageUrls])
 
     const paginate = (newDirection: number) => {
         setPage([page + newDirection, newDirection])
@@ -70,7 +79,7 @@ const SlideShow = ({className, imageUrls}: Props) => {
                 <motion.div
                     key={page}
                     variants={variants}
-                    className="absolute w-full h-[calc(100%-1.5rem)] rounded-tl-xl rounded-tr-xl overflow-hidden"
+                    className={`absolute w-full overflow-hidden ${imageUrls.length > 1 ? 'h-[calc(100%-1.5rem)]' : 'h-full'} ${frameClassName}`}
                     custom={direction}
                     animate="center"
                     initial="enter"
@@ -79,7 +88,7 @@ const SlideShow = ({className, imageUrls}: Props) => {
                         x: {duration: 0.3},
                         opacity: {duration: 0.2}
                     }}
-                    drag="x"
+                    drag={imageUrls.length > 1 ? 'x' : false}
                     dragConstraints={{left: 0, right: 0}}
                     dragElastic={1}
                     onDragEnd={(e, {offset, velocity}) => {
@@ -91,51 +100,56 @@ const SlideShow = ({className, imageUrls}: Props) => {
                         }
                     }}>
                     <img
-                        className="w-full h-full object-cover"
+                        className={`w-full h-full object-cover ${imageClassName}`}
                         src={imageUrls[imageIndex]}
-                        alt=""/>
+                        alt=""
+                        loading="lazy" />
                 </motion.div>
             </AnimatePresence>
-            <ChevronLeftIcon
-                key={'left'}
-                className="absolute left-0 top-1/2 s-16 -translate-y-1/2 text-transparent group-hover:text-white/40
-                transition duration-300 cursor-pointer z-10"
-                onClick={() => {
-                    paginate(-1)
-                }}/>
-            <ChevronRightIcon
-                key={'right'}
-                className="absolute right-0 top-1/2 s-16 -translate-y-1/2 text-transparent group-hover:text-white/40
-                transition duration-300 cursor-pointer z-10"
-                onClick={() => {
-                    paginate(1)
-                }}/>
-            <ul className="absolute left-1/2 -translate-x-1/2 bottom-0 flex gap-2 z-10">
-                {
-                    imageUrls.map((value, index) => (
-                        <li
-                            key={index}
-                            className={`s-2 rounded-full bg-white/20`}
+            {
+                imageUrls.length > 1 &&
+                    <>
+                        <ChevronLeftIcon
+                            key={'left'}
+                            className="absolute left-0 top-[calc(50%-0.75rem)] s-16 -translate-y-1/2 text-transparent group-hover:text-white/40
+                            transition duration-300 cursor-pointer z-10"
                             onClick={() => {
-                                if (imageIndex !== index) {
-                                    paginate(index - imageIndex)
-                                }
-                            }}>
-                        </li>
-                    ))
-                }
-                <motion.div
-                    className="absolute inset-0 rounded-full bg-magenta origin-left"
-                    initial={false}
-                    animate={controls}
-                    transition={{
-                        type: 'tween',
-                        duration: 0.2
-                    }}
-                >
-
-                </motion.div>
-            </ul>
+                                paginate(-1)
+                            }}/>
+                        <ChevronRightIcon
+                            key={'right'}
+                            className="absolute right-0 top-[calc(50%-0.75rem)] s-16 -translate-y-1/2 text-transparent group-hover:text-white/40
+                            transition duration-300 cursor-pointer z-10"
+                            onClick={() => {
+                                paginate(1)
+                            }}/>
+                        <ul className="absolute left-1/2 -translate-x-1/2 bottom-0 flex gap-2 z-10">
+                            {
+                                imageUrls.map((value, index) => (
+                                    <li
+                                        key={index}
+                                        className={`s-2 rounded-full bg-white/20`}
+                                        onClick={() => {
+                                            if (imageIndex !== index) {
+                                                paginate(index - imageIndex)
+                                            }
+                                        }}>
+                                    </li>
+                                ))
+                            }
+                            <motion.li
+                                className="absolute inset-0 rounded-full bg-magenta origin-left"
+                                initial={false}
+                                animate={controls}
+                                transition={{
+                                    type: 'tween',
+                                    duration: 0.2
+                                }}
+                            >
+                            </motion.li>
+                        </ul>
+                    </>
+            }
         </div>
     )
 }

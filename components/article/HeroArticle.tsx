@@ -60,12 +60,16 @@ const HeroArticle = () => {
                         animate={{opacity: 1}}>
                         <cite>
                             ―&nbsp;
-                            <Link href={'https://en.wikipedia.org/wiki/William_Nicholson_(writer)'}>
-                                <a className="hover:underline">William Nicholson</a>
+                            <Link
+                                href={'https://en.wikipedia.org/wiki/William_Nicholson_(writer)'}
+                                className="hover:underline">
+                                William Nicholson
                             </Link>
                             ,&nbsp;
-                            <Link href={'https://en.wikipedia.org/wiki/Shadowlands_(1993_film)'}>
-                                <a className="hover:underline">Shadowlands</a>
+                            <Link
+                                href={'https://en.wikipedia.org/wiki/Shadowlands_(1993_film)'}
+                                className="hover:underline">
+                                Shadowlands
                             </Link>
                         </cite>
                     </motion.figcaption>
@@ -87,7 +91,7 @@ const HeroArticle = () => {
                 </div>
             </motion.div>
         </section>
-    )
+    );
 }
 
 const LanguageFramework = ({className}: { className?: string }) => {
@@ -262,7 +266,6 @@ const WaveText = ({text}: {text: string}) => {
         for (let i = 0; i < text.length; i++) {
             controls.current.push(animationControls())
         }
-        console.log('rerender')
     }
 
     useEffect(() => {

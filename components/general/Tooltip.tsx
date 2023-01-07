@@ -3,12 +3,13 @@ import { ReactNode, useEffect, useRef, useState } from 'react'
 type Placement = 'top' | 'bottom'
 
 interface Props {
+    className?: string
     content: string | ReactNode
     placement?: Placement
     children: ReactNode
 }
 
-const Tooltip = ({children, content, placement = 'top'}: Props) => {
+const Tooltip = ({className = '', children, content, placement = 'top'}: Props) => {
     const [open, setOpen] = useState<boolean>(false)
     const containerRef = useRef<HTMLDivElement>(null)
     const tooltipRef = useRef<HTMLDivElement>(null)
@@ -83,7 +84,7 @@ const Tooltip = ({children, content, placement = 'top'}: Props) => {
                         ref={tooltipRef}
                         className={`absolute left-1/2 px-2 py-0.5 flex text-sm bg-bg-200 text-white rounded-xl 
                         -translate-x-1/2 opacity-0 transition-[margin,opacity] shadow-2xl cursor-default 
-                        ${placement === 'top' ? 'bottom-full' : 'top-full'}`}
+                        ${placement === 'top' ? 'bottom-full' : 'top-full'} ${className}`}
                         onClick={(e) => {
                             e.stopPropagation()
                         }}>

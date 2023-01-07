@@ -39,7 +39,7 @@ interface LocaleProviderProps {
 export const LocaleProvider = ({children}: LocaleProviderProps) => {
     const [language, setLanguage] = useState<ILocale>(defaultLocale)
     const [initialLoading, setInitialLoading] = useState(true)
-    const {push, pathname, asPath, query, locale} = useRouter()
+    const {replace, pathname, asPath, query, locale} = useRouter()
 
     useEffect(() => {
         const preferredLocale = getLocale(localStorage.getItem('lang') ?? 'en')
@@ -49,7 +49,14 @@ export const LocaleProvider = ({children}: LocaleProviderProps) => {
     }, [])
 
     useEffect(() => {
-        push({pathname, query}, asPath, {locale: language.code}).then()
+        if (!initialLoading) {
+            replace({pathname, query, hash: asPath.split('#')[1]}, asPath, {locale: language.code})
+                .catch((e) => {
+                    if (!e.cancelled) {
+                        throw e
+                    }
+                })
+        }
     }, [language])
 
     const memoizedValue = useMemo<ILocaleProvider>(() => ({

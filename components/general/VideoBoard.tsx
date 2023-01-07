@@ -1,4 +1,4 @@
-import { FilmIcon } from '@heroicons/react/outline'
+import { FilmIcon } from '@heroicons/react/24/outline'
 import VideoCard from './VideoCard'
 
 interface Props {

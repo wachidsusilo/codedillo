@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { ChatIcon, ExternalLinkIcon, EyeIcon } from '@heroicons/react/outline'
+import { ChatBubbleOvalLeftEllipsisIcon, ArrowTopRightOnSquareIcon, EyeIcon } from '@heroicons/react/24/outline'
 import Pagination from '../general/Pagination'
 import usePagination from '../../hooks/UsePagination'
 import { useRouter } from 'next/router'
@@ -90,64 +90,67 @@ const ArticleList = ({className}: Props) => {
                 <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
                     {
                         Array(20).fill(0).map((value, index) => (
-                            <Link key={index} href="/pages">
-                                <a className="relative w-full h-64 p-8 flex flex-col bg-white/10
+                            (<Link
+                                key={index}
+                                href="/pages"
+                                className="relative w-full h-64 p-8 flex flex-col bg-white/10
                                     border border-white/5 rounded-xl cursor-pointer overflow-hidden group">
-                                    <div className="w-full grid grid-cols-[3.5rem_1fr]">
-                                        <div className="w-14 h-14 rounded-2xl self-center justify-self-center
-                                            flex items-center justify-center border border-white/5 bg-gradient-to-b
-                                            from-white/10 via-white/5 to-transparent">
-                                            <img
-                                                className="w-6 h-6 object-contain"
-                                                src={article.iconUrl}
-                                                alt=""/>
-                                        </div>
-                                        <h3 className="ml-4 text-lg font-medium self-center line-clamp-2 text-shadow-lg z-10">
-                                            {article.title}
-                                        </h3>
+
+                                <div className="w-full grid grid-cols-[3.5rem_1fr]">
+                                    <div className="w-14 h-14 rounded-2xl self-center justify-self-center
+                                        flex items-center justify-center border border-white/5 bg-gradient-to-b
+                                        from-white/10 via-white/5 to-transparent">
+                                        <img
+                                            className="w-6 h-6 object-contain"
+                                            src={article.iconUrl}
+                                            alt=""/>
                                     </div>
-                                    <p className="mt-4 text-md line-clamp-3 text-white/60 text-shadow-lg z-10">
-                                        {article.description} Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Asperiores aspernatur cum cupiditate dolor et explicabo libero minus
-                                        quaerat quo temporibus.
-                                    </p>
-                                    <div className="mt-auto flex z-10">
-                                        <div className="flex items-center text-white/60
-                                            hover:text-white/80 transition z-10">
-                                            <img
-                                                className="w-5 h-5 rounded-full object-cover"
-                                                src={article.profilePictureUrl}
-                                                alt=""/>
-                                            <span
-                                                className="ml-3 text-sm font-medium text-shadow-lg">{article.author}</span>
-                                        </div>
-                                        <div className="ml-6 flex items-center text-white/40
-                                            hover:text-white/80 transition z-10">
-                                            <EyeIcon className="w-5 h-5"/>
-                                            <span className="ml-2 text-sm text-shadow-lg">{article.reads}</span>
-                                        </div>
-                                        <div className="ml-6 hidden xxs:flex items-center text-white/40
-                                            hover:text-white/80 transition z-10">
-                                            <ChatIcon className="w-5 h-5"/>
-                                            <span className="ml-2 flex text-sm text-shadow-lg">
-                                                    {article.comments}
-                                                <span className="hidden xs:flex">
-                                                        &nbsp;&nbsp;Comments
-                                                    </span>
+                                    <h3 className="ml-4 text-lg font-medium self-center line-clamp-2 text-shadow-lg z-10">
+                                        {article.title}
+                                    </h3>
+                                </div>
+                                <p className="mt-4 text-md line-clamp-3 text-white/60 text-shadow-lg z-10">
+                                    {article.description} Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit. Asperiores aspernatur cum cupiditate dolor et explicabo libero minus
+                                    quaerat quo temporibus.
+                                </p>
+                                <div className="mt-auto flex z-10">
+                                    <div className="flex items-center text-white/60
+                                        hover:text-white/80 transition z-10">
+                                        <img
+                                            className="w-5 h-5 rounded-full object-cover"
+                                            src={article.profilePictureUrl}
+                                            alt=""/>
+                                        <span
+                                            className="ml-3 text-sm font-medium text-shadow-lg">{article.author}</span>
+                                    </div>
+                                    <div className="ml-6 flex items-center text-white/40
+                                        hover:text-white/80 transition z-10">
+                                        <EyeIcon className="w-5 h-5"/>
+                                        <span className="ml-2 text-sm text-shadow-lg">{article.reads}</span>
+                                    </div>
+                                    <div className="ml-6 hidden xxs:flex items-center text-white/40
+                                        hover:text-white/80 transition z-10">
+                                        <ChatBubbleOvalLeftEllipsisIcon className="w-5 h-5"/>
+                                        <span className="ml-2 flex text-sm text-shadow-lg">
+                                                {article.comments}
+                                            <span className="hidden xs:flex">
+                                                    &nbsp;&nbsp;Comments
                                                 </span>
-                                        </div>
+                                            </span>
                                     </div>
-                                    <ExternalLinkIcon className="absolute right-4 bottom-4 w-5 h-5 text-white/40
-                                        hover:text-white/80 transition"/>
-                                </a>
-                            </Link>
+                                </div>
+                                <ArrowTopRightOnSquareIcon className="absolute right-4 bottom-4 w-5 h-5 text-white/40
+                                    hover:text-white/80 transition"/>
+
+                            </Link>)
                         ))
                     }
                 </div>
                 <Pagination className="mt-16"/>
             </div>
         </section>
-    )
+    );
 }
 
 export default ArticleList

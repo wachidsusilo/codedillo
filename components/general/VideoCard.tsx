@@ -1,6 +1,6 @@
 import { CSSProperties, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { ArrowRightIcon } from '@heroicons/react/outline'
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
 import { Color, getColor } from '../../utils/color'
 
 type Layout = 'vertical' | 'horizontal' | 'horizontal-reverse' | 'branding'
@@ -124,29 +124,31 @@ const VideoCard = (
                                 possimus praesentium provident quod ratione recusandae repellat sequi sunt tempora
                                 tempore ullam voluptatibus? Magnam.
                             </p>
-                            <Link href={'/'}>
-                                <a className="mt-8 mr-auto py-2 px-4 justify-self-end flex items-center justify-center
+                            <Link
+                                href={'/'}
+                                className="mt-8 mr-auto py-2 px-4 justify-self-end flex items-center justify-center
                                     text-sm rounded-lg cursor-pointer group shrink-on-click"
-                                   style={{
-                                       color: getColor(buttonColor, 1),
-                                       backgroundColor: getColor(buttonColor, 0.15)
-                                   }}
-                                   onMouseEnter={(e) => {
-                                       e.currentTarget.style.backgroundColor = getColor(buttonColor, 0.2)
-                                   }}
-                                   onMouseLeave={(e) => {
-                                       e.currentTarget.style.backgroundColor = getColor(buttonColor, 0.15)
-                                   }}>
-                                    <span className="mr-1.5 flex whitespace-nowrap">Watch Video</span>
-                                    <ArrowRightIcon
-                                        className="w-4 h-4 transition duration-300 group-hover:translate-x-1/4"/>
-                                </a>
+                                style={{
+                                    color: getColor(buttonColor, 1),
+                                    backgroundColor: getColor(buttonColor, 0.15)
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor = getColor(buttonColor, 0.2)
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor = getColor(buttonColor, 0.15)
+                                }}>
+
+                                <span className="mr-1.5 flex whitespace-nowrap">Watch Video</span>
+                                <ArrowRightIcon
+                                    className="w-4 h-4 transition duration-300 group-hover:translate-x-1/4"/>
+
                             </Link>
                         </div>
                     </>
             }
         </div>
-    )
+    );
 }
 
 export default VideoCard

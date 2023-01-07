@@ -192,6 +192,9 @@ module.exports = {
                     'bg-hover': '#fff',
                     fg: '#18191a'
                 }
+            },
+            opacity: {
+                '15': '0.15'
             }
         }
     },

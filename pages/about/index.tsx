@@ -28,7 +28,7 @@ const About: NextPage<Props> = ({headerContent}: Props) => {
     return (
         <div className={`relative w-screen h-screen scrollbar-thin-purple-dark md:!overflow-auto ${navbarOpen && '!overflow-hidden'}`}>
             <Head>
-                <title>Codedillo - Projects</title>
+                <title>About - Codedillo</title>
                 <link rel="icon" type="image/png" href="/favicon.png"/>
             </Head>
             <Header content={headerContent}/>

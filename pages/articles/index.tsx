@@ -31,7 +31,7 @@ const Articles: NextPage<Props> = ({headerContent}: Props) => {
             <div
                 className={`relative w-screen h-screen scrollbar-thin-purple-dark md:!overflow-auto ${navbarOpen && '!overflow-hidden'}`}>
                 <Head>
-                    <title>Codedillo - Articles</title>
+                    <title>Articles - Codedillo</title>
                     <link rel="icon" type="image/png" href="/favicon.png"/>
                 </Head>
                 <Header content={headerContent}/>

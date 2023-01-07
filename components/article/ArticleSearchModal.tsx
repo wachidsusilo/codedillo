@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { ArrowRightIcon, PlusIcon, SearchIcon } from '@heroicons/react/outline'
+import { ArrowRightIcon, PlusIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import useArticle from '../../hooks/UseArticle'
 import { ArticleMeta } from '../../typings'
 
@@ -156,11 +156,13 @@ const ArticleSearchModal = () => {
                                         Articles
                                     </h3>
                                     <ul className="w-full">
-                                        <Link href="/articles">
-                                            <a className="w-full px-4 py-2.5 rounded-md flex items-center gap-2 bg-white/10">
-                                                <PlusIcon className="w-4 h-4"/>
-                                                <span className="text-white/40">Create Article</span>
-                                            </a>
+                                        <Link
+                                            href="/articles"
+                                            className="w-full px-4 py-2.5 rounded-md flex items-center gap-2 bg-white/10">
+
+                                            <PlusIcon className="w-4 h-4"/>
+                                            <span className="text-white/40">Create Article</span>
+
                                         </Link>
                                     </ul>
                                 </div>
@@ -168,15 +170,17 @@ const ArticleSearchModal = () => {
                             :
                             results.length === 0 ? (
                                     <div key={'results_empty'} className="w-full flex flex-col items-center pb-6">
-                                        <SearchIcon className="w-5 h-5 mt-12 mb-6"/>
+                                        <MagnifyingGlassIcon className="w-5 h-5 mt-12 mb-6"/>
                                         <p className="pb-3 whitespace-nowrap text-sm text-white/40">
                                             Can't find what you're looking for?
                                         </p>
-                                        <Link href="/articles">
-                                            <a className="flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white/70 group">
-                                                <span className="transition">Create your own article</span>
-                                                <ArrowRightIcon className="w-4 h-4 ml-0 transition"/>
-                                            </a>
+                                        <Link
+                                            href="/articles"
+                                            className="flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white/70 group">
+
+                                            <span className="transition">Create your own article</span>
+                                            <ArrowRightIcon className="w-4 h-4 ml-0 transition"/>
+
                                         </Link>
                                     </div>
                                 )
@@ -185,49 +189,53 @@ const ArticleSearchModal = () => {
                                         <h3 className="w-full px-4 pt-6 pb-4 text-sm font-medium">Results</h3>
                                         {
                                             results.map((value, index) => (
-                                                <Link key={value.id} href="/articles">
-                                                    <a
-                                                        className="w-full px-4 py-2.5 flex items-center gap-4 rounded-md"
-                                                        style={{
-                                                            backgroundColor: selected === index ? 'rgba(255, 255, 255, 0.1)' : 'transparent'
-                                                        }}
-                                                        onMouseEnter={() => {
-                                                            setSelected(index)
-                                                        }}>
-                                                        <img
-                                                            className="w-6 h-6 rounded-md"
-                                                            src={value.iconUrl}
-                                                            alt=""/>
-                                                        <div className="grow flex flex-col justify-center overflow-hidden">
-                                                            <span className="text-sm text-white/60">
-                                                                {value.title}
-                                                            </span>
-                                                            <span
-                                                                className="text-sm text-white/40 whitespace-nowrap text-ellipsis overflow-hidden">
-                                                                {value.description}
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </Link>
+                                                (<Link
+                                                    key={value.id}
+                                                    href="/articles"
+                                                    className="w-full px-4 py-2.5 flex items-center gap-4 rounded-md"
+                                                    style={{
+                                                        backgroundColor: selected === index ? 'rgba(255, 255, 255, 0.1)' : 'transparent'
+                                                    }}
+                                                    onMouseEnter={() => {
+                                                        setSelected(index)
+                                                    }}>
+
+                                                    <img
+                                                        className="w-6 h-6 rounded-md"
+                                                        src={value.iconUrl}
+                                                        alt=""/>
+                                                    <div className="grow flex flex-col justify-center overflow-hidden">
+                                                        <span className="text-sm text-white/60">
+                                                            {value.title}
+                                                        </span>
+                                                        <span
+                                                            className="text-sm text-white/40 whitespace-nowrap text-ellipsis overflow-hidden">
+                                                            {value.description}
+                                                        </span>
+                                                    </div>
+
+                                                </Link>)
                                             ))
                                         }
                                         {
                                             results.length >= 20 && (
-                                                <Link key={'browse_results'} href="/articles">
-                                                    <a
-                                                        className="w-full px-4 py-3 flex items-center justify-between gap-4 rounded-md"
-                                                        style={{
-                                                            backgroundColor: selected === -1 ? 'rgba(255, 255, 255, 0.1)' : 'transparent'
-                                                        }}
-                                                        onMouseEnter={() => {
-                                                            setSelected(-1)
-                                                        }}>
-                                                        <span className="text-md font-medium text-white/40">
-                                                            View all results
-                                                        </span>
-                                                        <ArrowRightIcon className="w-4 h-4 text-white/40"/>
-                                                    </a>
-                                                </Link>
+                                                (<Link
+                                                    key={'browse_results'}
+                                                    href="/articles"
+                                                    className="w-full px-4 py-3 flex items-center justify-between gap-4 rounded-md"
+                                                    style={{
+                                                        backgroundColor: selected === -1 ? 'rgba(255, 255, 255, 0.1)' : 'transparent'
+                                                    }}
+                                                    onMouseEnter={() => {
+                                                        setSelected(-1)
+                                                    }}>
+
+                                                    <span className="text-md font-medium text-white/40">
+                                                        View all results
+                                                    </span>
+                                                    <ArrowRightIcon className="w-4 h-4 text-white/40"/>
+
+                                                </Link>)
                                             )
                                         }
                                     </div>
@@ -236,7 +244,7 @@ const ArticleSearchModal = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default ArticleSearchModal

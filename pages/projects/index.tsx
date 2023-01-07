@@ -32,7 +32,7 @@ const Projects: NextPage<Props> = ({headerContent, languages, frameworks}: Props
         <ProjectProvider languageList={languages} frameworkList={frameworks}>
             <div className={`relative w-screen h-screen scrollbar-thin-purple-dark md:!overflow-auto ${navbarOpen && '!overflow-hidden'}`}>
                 <Head>
-                    <title>Codedillo - Projects</title>
+                    <title>Projects - Codedillo</title>
                     <link rel="icon" type="image/png" href="/favicon.png"/>
                 </Head>
                 <Header content={headerContent}/>

@@ -1,11 +1,11 @@
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react'
-import { Framework, FrameworkId, Language, LanguageId } from '../typings'
+import { Framework, FrameworkType, Language, LangType } from '../typings'
 
 interface IProject {
     languages: Array<Language>
     frameworks: Array<Framework>
-    getLanguageById: (id: LanguageId) => Language | null
-    getFrameworkById: (id: FrameworkId) => Framework | null
+    getLanguageById: (id: LangType) => Language | null
+    getFrameworkById: (id: FrameworkType) => Framework | null
 }
 
 const ProjectContext = createContext<IProject>({

@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 
 
@@ -9,8 +9,9 @@ interface IPagination {
     ellipsisStart: boolean
     ellipsisEnd: boolean
     pages: Array<number>
-    setSelected: (page: number) => void
-    setTotal: (total: number) => void
+    setEnabled(enabled: boolean): void
+    setSelected(page: number): void
+    setTotal(total: number): void
 }
 
 const PaginationContext = createContext<IPagination>({
@@ -20,6 +21,7 @@ const PaginationContext = createContext<IPagination>({
     ellipsisStart: false,
     ellipsisEnd: false,
     pages: [],
+    setEnabled: () => {},
     setSelected: () => {},
     setTotal: () => {}
 })
@@ -33,10 +35,11 @@ export const PaginationProvider = ({children}: PaginationProviderProps) => {
     const [selected, setSelected] = useState(1)
     const [total, setTotal] = useState(1)
     const [half, setHalf] = useState(0)
-    const {replace, pathname, query} = useRouter()
+    const enabled = useRef<boolean>(false)
+    const {push, query: {page, ...queries}} = useRouter()
 
     const goToPage = (page: number) => {
-        replace({pathname, query: {...query, page: page}}, undefined, {shallow: true}).then()
+        push({query: {...queries, page}}).then()
     }
 
     useEffect(() => {
@@ -63,8 +66,7 @@ export const PaginationProvider = ({children}: PaginationProviderProps) => {
     }, [window])
 
     useEffect(() => {
-        if (query?.hasOwnProperty('page')) {
-            const {page} = query
+        if (page && enabled.current) {
             if (typeof page === 'string') {
                 const p = parseInt(page)
                 if (isNaN(p) || !isFinite(p)) {
@@ -84,7 +86,7 @@ export const PaginationProvider = ({children}: PaginationProviderProps) => {
                 goToPage(1)
             }
         }
-    }, [query?.page])
+    }, [page])
 
     const memoizedValue = useMemo<IPagination>(() => {
         const pages: Array<number> = [1]
@@ -112,6 +114,9 @@ export const PaginationProvider = ({children}: PaginationProviderProps) => {
             ellipsisStart: pages[1] !== 2 && total > 2 * half + 1,
             ellipsisEnd: pages[pages.length - 2] !== total - 1 && total > 2 * half + 1,
             pages: pages,
+            setEnabled(en) {
+                enabled.current = en
+            },
             setSelected: (page) => {
                 if (isNaN(page) || !isFinite(page)) {
                     return

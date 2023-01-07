@@ -3,18 +3,24 @@ import type { AppProps } from 'next/app'
 import { LocaleProvider } from '../hooks/UseLocale'
 import RouteProgress from '../components/RouteProgress'
 import { NavigationProvider } from '../hooks/UseNavigation'
+import { AuthProvider } from '../hooks/UseAuth'
+import Snackbar from '../components/Snackbar'
+import { NotificationProvider } from '../hooks/UseNotification'
 
-function MyApp({Component, pageProps}: AppProps) {
+function App({Component, pageProps}: AppProps) {
     return (
-        <>
+        <NotificationProvider>
             <RouteProgress/>
             <LocaleProvider>
-                <NavigationProvider>
-                    <Component {...pageProps} />
-                </NavigationProvider>
+                <AuthProvider>
+                    <NavigationProvider>
+                        <Component {...pageProps} />
+                    </NavigationProvider>
+                </AuthProvider>
             </LocaleProvider>
-        </>
+            <Snackbar/>
+        </NotificationProvider>
     )
 }
 
-export default MyApp
+export default App
