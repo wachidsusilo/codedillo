@@ -19,8 +19,8 @@ export interface ProjectMeta {
     title: string
     description: string
     imageUrls: Array<string>
-    languages: Array<FrameworkType>
-    frameworks: Array<LangType>
+    languages: Array<LangType>
+    frameworks: Array<FrameworkType>
 }
 
 export interface Language {
